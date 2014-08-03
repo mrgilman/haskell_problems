@@ -14,8 +14,7 @@ doubleEveryOther :: [Int] -> [Int]
 doubleEveryOther = reverse . doubleEveryOtherLeftToRight . reverse
 
 sumDigits :: [Int] -> Int
-sumDigits [] = 0
-sumDigits xs = sum . concat $ map toDigits xs
+sumDigits = sum . concatMap toDigits
 
 validate :: Int -> Bool
 validate n = (sumDigits $ doubleEveryOther $ toDigits n) `mod` 10 == 0
